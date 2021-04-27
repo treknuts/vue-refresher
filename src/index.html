@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./index-output.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Vue value interpolation &#x1F6F8;</h1>
+    <div id="app" class="app">{{ message }}</div>
+    <br />
+    <h1>v-bind directive &#x26D3;</h1>
+    <div id="app-2" class="app">
+      <span v-bind:title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound
+        title!
+      </span>
+    </div>
+    <br />
+    <h1>v-if directive &#x1F374;</h1>
+    <div id="app-3" class="app">
+      <span v-if="seen" class="app"> Now you see me </span>
+      <button v-on:click="switcheroo">Click me ;)</button>
+    </div>
+    <br />
+    <h1>v-for directive &#x1F504;</h1>
+    <div id="app-4" class="app">
+      <ol>
+        <li v-for="todo in todos">{{ todo.text }}</li>
+      </ol>
+    </div>
+    <br />
+    <h1>Handling user input &#x2328;</h1>
+    <div id="app-5" class="app">
+      <p>{{ message }}</p>
+      <button v-on:click="reverseMessage">Push me!</button>
+    </div>
+    <br />
+    <h1>v-model for handling form input and app state</h1>
+    <div id="app-6" class="app">
+      <p>{{ message }}</p>
+      <input v-model="message" />
+    </div>
+    <br />
+    <h1>Grocery list using components as list items &#x1F9FA;</h1>
+    <div id="app-7" class="app">
+      <ol>
+        <todo-item
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind:key="item.id"
+        >
+          {{ item.text }}
+        </todo-item>
+      </ol>
+      <input v-model="text" />
+      <button v-on:click="addItem">Add to basket</button>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

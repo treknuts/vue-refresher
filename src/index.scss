@@ -1,0 +1,54 @@
+html,
+body {
+  --text-color: #282828;
+  --bg-primary: #e2823d;
+  --bg-secondary: #3de282;
+  --button-bg: #823de2;
+  --button-hover: #d53de2;
+  margin: 5px;
+  padding: 0;
+  background-color: var(--bg-primary);
+  font-family: "Nunito", sans-serif;
+  display: grid;
+  justify-items: center;
+  color: var(--button-bg);
+
+  @mixin app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    background-color: var(--bg-secondary);
+    color: var(--text-color);
+  }
+
+  @mixin button {
+    padding: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--button-bg);
+    color: white;
+  }
+
+  .app {
+    @include app;
+    padding: 2em;
+    border-radius: 8px;
+
+    button {
+      @include button;
+
+      &:hover {
+        background-color: var(--button-hover);
+        color: var(--text-color);
+      }
+    }
+
+    input {
+      border-radius: 5px;
+      margin: 1em;
+      padding: 0.5em;
+    }
+  }
+}
